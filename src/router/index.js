@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import ResultPage from '@/views/ResultPage.vue';
 import HomeView from '../views/HomeView.vue';
 
 Vue.use(VueRouter);
@@ -9,6 +10,11 @@ const routes = [
     path: '/',
     name: 'home',
     component: HomeView,
+  },
+  {
+    path: '/result',
+    name: 'result',
+    component: ResultPage,
   },
 ];
 

@@ -3,26 +3,26 @@
     <h1 class="text-center mb-5 mt-5">Autocomplete Search Box</h1>
 
     <b-row class="d-flex flex-column align-items-center justify-content-center">
-      <b-form class="search-form mb-4">
-        <b-form-input
-          type="search"
-          placeholder="Имя или индификатор пользователя ВК...">
-        </b-form-input>
-      </b-form>
-      <FriendsList />
-      <b-button class="w-auto">Построить</b-button>
+      <SearchForm />
+      <b-button
+        class="show-all-friends mb-3"
+        variant="success"
+      >
+        Показать всех друзей пользователей
+      </b-button>
+      <TableUsers />
     </b-row>
 
   </b-container>
 </template>
 
 <script>
-
-import FriendsList from '@/components/Friends/FriendsList.vue';
+import SearchForm from '@/components/SearchForm.vue';
+import TableUsers from '@/components/TableUsers/TableUsers.vue';
 
 export default {
   name: 'HomeView',
-  components: { FriendsList },
+  components: { SearchForm, TableUsers },
 };
 </script>
 
@@ -30,5 +30,9 @@ export default {
   .search-form {
     max-width: 600px;
     padding: 0;
+  }
+
+  .show-all-friends {
+    width: auto;
   }
 </style>

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import FriendItem from '@/components/Friends/FriendItem.vue';
+import FriendItem from '@/components/FriendList/FriendItem.vue';
 
 export default {
   name: 'FriendsList',
