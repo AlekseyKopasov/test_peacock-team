@@ -1,8 +1,7 @@
 <template>
   <table class="table-users table table-striped table-hover">
   <tbody>
-
-    <TableUsersItem v-for="user in userList" key="user.id" user="user"/>
+    <TableUsersItem v-for="(user, index) in users" :key="user.id" :user="user" :index="index"/>
   </tbody>
 </table>
 </template>
@@ -16,9 +15,9 @@ export default {
   components: { TableUsersItem },
 
   computed: {
-    userList() {
-      ...mapGetters(['getUsers'])
-    },
+    ...mapGetters({
+      users: 'getUsers',
+    }),
   },
 };
 </script>

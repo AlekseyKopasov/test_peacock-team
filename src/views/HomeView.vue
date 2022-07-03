@@ -3,7 +3,7 @@
     <h1 class="text-center mb-5 mt-5">Autocomplete Search Box</h1>
 
     <b-row class="d-flex flex-column align-items-center justify-content-center">
-      <SearchForm />
+      <AddUserForm />
       <b-button
         class="show-all-friends mb-3"
         variant="success"
@@ -17,12 +17,12 @@
 </template>
 
 <script>
-import SearchForm from '@/components/SearchForm.vue';
+import AddUserForm from '@/components/AddUserForm.vue';
 import TableUsers from '@/components/TableUsers/TableUsers.vue';
 
 export default {
   name: 'HomeView',
-  components: { SearchForm, TableUsers },
+  components: { AddUserForm, TableUsers },
 };
 </script>
 
