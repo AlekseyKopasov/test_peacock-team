@@ -1,5 +1,5 @@
 <template>
-  <b-form class="search-form mb-4" @submit.prevent="addUser">
+  <b-form class="search-form mb-4" @submit.prevent="search">
     <b-form-input
       v-model="name"
       class="me-2"
@@ -25,10 +25,10 @@ export default {
     name: '',
   }),
   methods: {
-    ...mapActions({ add: 'addUser' }),
-    addUser() {
+    ...mapActions({ fetchUser: 'searchUser' }),
+    search() {
       if (this.name) {
-        this.add(this.name);
+        this.fetchUser(this.name);
       }
       this.name = '';
     },

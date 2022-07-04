@@ -1,10 +1,12 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import searchUser from '@/API';
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
+    isAuthorization: false,
     users: [
       {
         id: 1,
@@ -30,18 +32,24 @@ const store = new Vuex.Store({
     },
   },
   mutations: {
-    add(state, user) {
-      const newUser = {
-        id: 1,
-        name: user,
-      };
-      state.users.push(newUser);
+    add(state, data) {
+      console.log(state);
+      console.log(data);
+      const result = searchUser(data);
+      console.log(result);
+      // const newUser = {
+      //   id: 1,
+      //   name: data,
+      // };
+      // state.users.push(newUser);
     },
   },
   actions: {
     addUser({ commit }, user) {
-      console.log(user);
       commit('add', user);
+    },
+    searchUser({ commit }, data) {
+      commit('add', data);
     },
   },
 });
