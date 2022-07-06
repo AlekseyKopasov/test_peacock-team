@@ -1,19 +1,24 @@
-import axios from 'axios';
-// eslint-disable-next-line import/named
-import { APP_ID, REDIRECT_URI, VK_AUTH_URI } from '@/utils/consts';
+// import axios from 'axios';
+// eslint-disable-next-lin e import/named
+// import { APP_ID, REDIRECT_URI, VK_AUTH_URI } from '@/utils/consts';
 
-const auth = () => {
-  axios.get(`${VK_AUTH_URI}?
-  client_id=${APP_ID}
-  &display=page
-  &redirect_uri=${REDIRECT_URI}
-  &response_type=token`, {
-    headers: {
-      'Content-Type': 'application/json',
+// import fetchJsonp from 'fetch-jsonp';
+// eslint-disable-next-line max-len
+const TOKEN = 'vk1.a.ejlwfjmUJU-ndJv0T4y1G-MOkmUR8Y9sRoanj4R-ad-y_3vHqV4U808nvvB6ihBlWAXOGOzMDnc-D8vEsZqEFaHc5_J2C287fbHtf-J3hRGaCP6u3iVLmTu1xwsEKe5cggRKWSfR-7S0l8BeE9X_x203KGWh-N4zCzgt5Q_kB9K75uiuNnLDDWon9kJno0iq';
+
+const auth = async () => {
+  await fetch(
+    `https://api.vk.com/method/users.search?count=100&access_token=${TOKEN}&v=5.81`,
+    {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      // mode: 'no-cors',
     },
-  })
+  )
     .then((res) => {
-      console.log('res--->', res);
+      console.log(res);
     });
 };
 
