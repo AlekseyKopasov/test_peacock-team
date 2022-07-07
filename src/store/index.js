@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import searchUser from '@/API';
+// eslint-disable-next-line import/no-cycle
+import searchUser from '@/api';
 
 Vue.use(Vuex);
 
@@ -30,6 +31,9 @@ const store = new Vuex.Store({
     getUsers(state) {
       return state.users;
     },
+    getAuthorizationStatus(state) {
+      return state.isAuthorization;
+    },
   },
   mutations: {
     add(state, data) {
@@ -43,6 +47,9 @@ const store = new Vuex.Store({
       // };
       // state.users.push(newUser);
     },
+    changeStatus(state, status) {
+      state.isAuthorization = status;
+    },
   },
   actions: {
     addUser({ commit }, user) {
@@ -50,6 +57,9 @@ const store = new Vuex.Store({
     },
     searchUser({ commit }, data) {
       commit('add', data);
+    },
+    changeAuthStatus({ commit }, status) {
+      commit('changeStatus', status);
     },
   },
 });
