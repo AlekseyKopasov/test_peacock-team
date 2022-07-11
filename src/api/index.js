@@ -1,17 +1,5 @@
-// import axios from 'axios';
-// eslint-disable-next-lin e import/named
 // import { APP_ID, REDIRECT_URI, VK_AUTH_URI } from '@/utils/consts';
 
-// eslint-disable-next-line max-len
-// const TOKEN =
-/*
-* 1. авторизоваться
-* 2. если есть авторизация - получать пользователя
-* 3. при выборе пользователя получать всех у кого он в друзьях
-* */
-
-// eslint-disable-next-line import/no-cycle
-import store from '@/store';
 // import { getData, storeData } from '@/utils/storage';
 
 // const path = `${VK_AUTH_URI}?`
@@ -27,10 +15,7 @@ const auth = () => {
 };
 
 const searchUser = () => {
-  const isAuthorization = store.getters.getAuthorizationStatus;
-  if (!isAuthorization) {
-    auth();
-  }
+  auth();
   // поиск пользователя по id или имени
 };
 
